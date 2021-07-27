@@ -63,24 +63,13 @@ $(document).ready(function () {
 		$('body').removeClass('lock');
 	});
 
-	// function ibg() {
-	// 	if (isIE()) {
-	// 		let ibg = document.querySelectorAll(".ibg");
-	// 		for (var i = 0; i < ibg.length; i++) {
-	// 			if (ibg[i].querySelector('img') && ibg[i].querySelector('img').getAttribute('src') != null) {
-	// 				ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
-	// 			}
-	// 		}
-	// 	}
-	// }
-	// ibg();
-
-
-	//Клик вне области
-	// $(document).on('click touchstart', function (e) {
-	// 	if (!$(e.target).is(".select *")) {
-	// 		$('.select').removeClass('active');
-	// 	};
-	// });
+	//Hide a div at the bottom of the mainblock
+	let closeTrigger = document.querySelector('.icon-close');
+	if (closeTrigger) {
+		const bodyTrigger = document.querySelector('.trigger-mainblock');
+		closeTrigger.addEventListener('click', function (e) {
+			bodyTrigger.classList.add('trigger-mainblock--hide');
+		});
+	}
 
 });
