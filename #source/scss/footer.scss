@@ -1,5 +1,53 @@
-footer {
+.footer {
+	background-color: #f6f6f6;
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 28px 0px;
+		position: relative;
+		&::after {
+			content: url("../img/items/dog-with-books.png");
+			position: absolute;
+			bottom: 10px;
+			right: 0;
+			@media (max-width: $md3 + px) {
+				bottom: -40px;
+				right: -20px;
+			}
+		}
+		@media (max-width: $md3 + px) {
+			flex-direction: column;
+		}
+	}
+	&__nav {
+		@media (max-width: $md3 + px) {
+			margin: 0px 0px 30px 0px;
+		}
+	}
+	&__list {
+		display: flex;
+		li {
+			margin: 0px 24px 0px 0px;
+			&:last-child {
+				margin: 0px 0px 0px 0px;
+			}
+		}
+	}
+	&__link {
+		font-size: 15px;
+		line-height: 18px;
+		color: #131314;
+		border-bottom: 1px solid transparent;
+		transition: all 0.2s cubic-bezier(0.4, 0, 1, 1) 0s;
+		&:hover {
+			border-bottom: 1px solid #131314;
+		}
+	}
+	&__copy {
+		font-size: 13px;
+		line-height: 23px;
+		color: #46474e;
+	}
 }
-//====================================================================================================
-
 //====================================================================================================

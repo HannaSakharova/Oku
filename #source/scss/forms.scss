@@ -4,7 +4,6 @@
 //<BUTTONS (a.btn+tab)>===============================================================================
 .btn {
 	display: inline-block;
-	// padding: 0px 0px;
 	background-color: #000000;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 8px;
@@ -38,7 +37,24 @@
 			width: 100%;
 		}
 	}
-	&:hover {
+	&-mainblock {
+		font-size: 15px;
+		line-height: 54px;
+		width: 247px;
+		&:hover {
+			box-shadow: none;
+		}
+		@media (max-width: $md4 + px) {
+			width: 100%;
+		}
+	}
+	&-footer {
+		font-size: 15px;
+		line-height: 54px;
+		width: 258px;
+		&:hover {
+			box-shadow: none;
+		}
 	}
 }
 //</BUTTONS>==========================================================================================
