@@ -72,4 +72,29 @@ $(document).ready(function () {
 		});
 	}
 
+	//Select country
+	let select = function () {
+		let selectHeader = document.querySelectorAll('.select-registration__header');
+		let selectItem = document.querySelectorAll('.select-registration__item');
+		selectHeader.forEach(item => {
+			item.addEventListener('click', selectToggle);
+		});
+		selectItem.forEach(item => {
+			item.addEventListener('click', selectChoose);
+		});
+
+		function selectToggle() {
+			this.parentElement.classList.toggle('select-active');
+		};
+		function selectChoose() {
+			let text = this.innerText,
+				select = this.closest('.select-registration'),
+				currentText = select.querySelector('.select-registration__current');
+			currentText.innerText = text;
+			select.classList.remove('select-active');
+			currentText.classList.add('select-color');
+		};
+	};
+	select();
+
 });
