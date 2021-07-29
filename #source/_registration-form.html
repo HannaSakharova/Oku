@@ -1,7 +1,10 @@
-<div id="registration-form" class="registration">
-	<form action="" class="registration__form">
-		<div class="registration__form-header header-registration">
-			<div class="header-registration__title">SIGN UP</div>
+<div id="registration-form" class="popup">
+	<div class="popup__content">
+		<div class="registration">
+			<form action="" class="registration__form"">
+				<div class=" registration__form-header header-registration">
+				<a href="#" class="header-form__close icon-close popup-close"></a>
+				<div class="header-registration__title">SIGN UP</div>
 		</div>
 		<div class="registration__form-body body-registration">
 			<div class="body-registration__enter">
@@ -21,7 +24,7 @@
 					<div class="gender-registration__title">Sex </div>
 					<div class="gender-registration__content">
 						<div class="body-registration__radiobox radiobox-registration">
-							<input type="radio" id="male" class="radiobox-registration__input" name="gender">
+							<input type="radio" id="male" class="radiobox-registration__input " name="gender" required>
 							<label for="male" class="radiobox-registration__label">Male</label>
 						</div>
 						<div class="body-registration__radiobox radiobox-registration">
@@ -57,5 +60,7 @@
 			</div>
 		</div>
 		<button class="body-registration__btn btn btn-registration">Sign Up</button>
-	</form>
+		</form>
+	</div>
+</div>
 </div>

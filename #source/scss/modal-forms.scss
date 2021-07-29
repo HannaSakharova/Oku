@@ -7,9 +7,21 @@
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.8);
 	z-index: 30;
+
 	visibility: hidden;
 	opacity: 0;
-	transition: transform 0.8s ease 0s;
+	transition: all 0.6s ease 0s;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		background: #000;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #e5e5e5;
+	}
 	&__content {
 		min-height: 100%;
 		display: flex;
@@ -17,18 +29,13 @@
 		align-items: center;
 		padding: 30px 10px;
 	}
-	&-active {
+
+	&.open {
 		visibility: visible;
 		opacity: 1;
-		.authorization {
-			transform: translateX(0);
-		}
 	}
 }
-body.popup-active {
-	overflow: hidden;
-	position: fixed;
-}
+
 //====================================================================================================
 .authorization {
 	max-width: 700px;
@@ -39,14 +46,20 @@ body.popup-active {
 	box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
 	position: relative;
 	background-color: #fff;
-	overflow: hidden;
-	transition: transform 0.8s ease 0s;
-	transform: translateX(-100%);
 	&:after {
 		content: url(../img/items/dog-with-books.png);
 		position: absolute;
 		bottom: 0;
 		right: 0;
+		@media (max-width: $md3 + px) {
+			display: none;
+		}
+	}
+	@media (max-width: $md3 + px) {
+		padding: 0px 0px 30px 0px;
+	}
+	@media (max-width: $md4 + px) {
+		padding: 0px 0px 20px 0px;
 	}
 	&__form-content {
 		display: flex;
@@ -57,6 +70,12 @@ body.popup-active {
 		width: 100%;
 		height: 140px;
 		border-radius: 15px 15px 0px 0px;
+		@media (max-width: $md3 + px) {
+			height: 120px;
+		}
+		@media (max-width: $md4 + px) {
+			height: 90px;
+		}
 	}
 }
 .header-form {
@@ -74,8 +93,16 @@ body.popup-active {
 		color: #000;
 		text-align: center;
 		letter-spacing: 1px;
-		margin: 50px 0px;
+		padding: 50px 0px;
 		text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+		@media (max-width: $md3 + px) {
+			font-size: 28px;
+			padding: 45px 0px;
+		}
+		@media (max-width: $md4 + px) {
+			font-size: 26px;
+			padding: 32px 0px;
+		}
 	}
 	&:after {
 		content: url(../img/items/book-02.png);
@@ -83,6 +110,13 @@ body.popup-active {
 		top: 0;
 		right: 60px;
 		opacity: 0.8;
+		@media (max-width: $md3 + px) {
+			top: 10px;
+			right: 20px;
+		}
+		@media (max-width: $md4 + px) {
+			display: none;
+		}
 	}
 	&:before {
 		content: url(../img/items/book-01.png);
@@ -90,20 +124,47 @@ body.popup-active {
 		bottom: 10px;
 		left: 40px;
 		opacity: 0.8;
+		@media (max-width: $md3 + px) {
+			bottom: 6px;
+			left: 35px;
+		}
+		@media (max-width: $md4 + px) {
+			display: none;
+		}
 	}
 }
 .body-form {
 	padding: 50px;
+	@media (max-width: $md3 + px) {
+		padding: 30px;
+	}
+	@media (max-width: $md4 + px) {
+		padding: 20px 20px 10px 20px;
+	}
 	&__enter {
 		display: flex;
 		align-items: center;
 		&:first-child {
 			margin: 0px 0px 40px 0px;
+			@media (max-width: $md3 + px) {
+				margin: 0px 0px 30px 0px;
+			}
+			@media (max-width: $md4 + px) {
+				margin: 0px 0px 20px 0px;
+			}
+		}
+		@media (max-width: $md4 + px) {
+			flex-direction: column;
+			align-items: flex-start;
 		}
 	}
 	&__label {
 		margin: 0px 20px 0px 0px;
 		font-size: 16px;
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+			margin: 0px 0px 0px 0px;
+		}
 	}
 	&__input {
 		width: 100%;
@@ -119,6 +180,13 @@ body.popup-active {
 		}
 		&--l {
 			width: 50%;
+			@media (max-width: $md3 + px) {
+				width: 100%;
+			}
+		}
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+			padding: 8px 10px 5px 0px;
 		}
 	}
 	&__btn {
@@ -131,10 +199,25 @@ body.popup-active {
 		display: flex;
 		align-items: center;
 		margin: 30px 0px 0px 0px;
+		@media (max-width: $md3 + px) {
+			margin: 20px 0px 0px 0px;
+			justify-content: space-between;
+		}
+		@media (max-width: $md4 + px) {
+			align-items: flex-start;
+			flex-direction: column-reverse;
+			margin: 20px 0px 20px 0px;
+		}
 	}
 	&__form-remember {
 		position: relative;
 		margin: 0px 120px 0px 0px;
+		@media (max-width: $md3 + px) {
+			margin: 0px 0px 0px 0px;
+		}
+		@media (max-width: $md4 + px) {
+			margin: 15px 0px 0px 0px;
+		}
 	}
 	&__form-checkbox {
 		appearance: none;
@@ -183,6 +266,9 @@ body.popup-active {
 			opacity: 0;
 			transition: opacity 0.3s ease 0s;
 		}
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 	&__form-forgot {
 		font-size: 16px;
@@ -192,14 +278,16 @@ body.popup-active {
 		&:hover {
 			color: #000;
 		}
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 }
 //====================================================================================================
 .registration {
 	max-width: 700px;
 	width: 100%;
-	// margin: 0 auto;
-	margin: 60px;
+	margin: 0 auto;
 	border-radius: 15px;
 	padding: 0px 0px 50px 0px;
 	box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
@@ -211,6 +299,19 @@ body.popup-active {
 		bottom: 50px;
 		right: 70px;
 		opacity: 0.9;
+		@media (max-width: $md3 + px) {
+			right: 20px;
+			bottom: 110px;
+		}
+		@media (max-width: $md4 + px) {
+			display: none;
+		}
+	}
+	@media (max-width: $md3 + px) {
+		padding: 0px 0px 30px 0px;
+	}
+	@media (max-width: $md4 + px) {
+		padding: 0px 0px 20px 0px;
 	}
 	&__form-header {
 		background-color: #f6f6f6;
@@ -224,6 +325,13 @@ body.popup-active {
 			top: 10px;
 			right: 60px;
 			opacity: 0.8;
+			@media (max-width: $md3 + px) {
+				top: 15px;
+				right: 15px;
+			}
+			@media (max-width: $md4 + px) {
+				display: none;
+			}
 		}
 		&:before {
 			content: url(../img/items/book-01.png);
@@ -231,10 +339,25 @@ body.popup-active {
 			bottom: 5px;
 			left: 40px;
 			opacity: 0.8;
+			@media (max-width: $md3 + px) {
+				left: 20px;
+			}
+			@media (max-width: $md4 + px) {
+				display: none;
+			}
+		}
+		@media (max-width: $md4 + px) {
+			height: 90px;
 		}
 	}
 	&__form-body {
 		padding: 50px;
+		@media (max-width: $md3 + px) {
+			padding: 30px;
+		}
+		@media (max-width: $md4 + px) {
+			padding: 20px 20px 10px 20px;
+		}
 	}
 }
 .header-registration {
@@ -246,25 +369,49 @@ body.popup-active {
 		letter-spacing: 1px;
 		text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 		padding: 45px 0;
+		@media (max-width: $md3 + px) {
+			font-size: 28px;
+		}
+		@media (max-width: $md4 + px) {
+			padding: 32px 0;
+			font-size: 26px;
+		}
 	}
 }
 .body-registration {
 	&__enter {
 		margin: 0px 0px 30px 0px;
+		@media (max-width: $md4 + px) {
+			margin: 0px 0px 20px 0px;
+		}
 	}
 	&__label {
 		margin: 0px 20px 0px 0px;
 		font-size: 16px;
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 	&__input {
 		width: 100%;
 		padding: 10px 10px 7px 0px;
 		border-bottom: 1px solid #000;
 		font-size: 16px;
+		transition: all 0.3s ease 0s;
+		&:focus {
+			border-bottom: 1px solid #cac9c9;
+		}
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+			padding: 8px 10px 5px 0px;
+		}
 	}
 	&__details {
 		display: flex;
 		justify-content: space-between;
+		@media (max-width: $md3 + px) {
+			flex-direction: column-reverse;
+		}
 	}
 	&__gender {
 		display: flex;
@@ -272,11 +419,17 @@ body.popup-active {
 	}
 	&__btn {
 		margin: 0px 0px 0px 50px;
+		@media (max-width: $md3 + px) {
+			margin: 0px 0px 0px 30px;
+		}
 	}
 }
 .gender-registration {
 	&__title {
 		font-size: 16px;
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 }
 .radiobox-registration {
@@ -317,6 +470,9 @@ body.popup-active {
 			opacity: 0;
 			transition: opacity 0.5s ease 0s;
 		}
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 	&__input {
 		appearance: none;
@@ -345,9 +501,19 @@ body.popup-active {
 			transform: rotate(180deg);
 		}
 	}
+	@media (max-width: $md3 + px) {
+		max-width: 100%;
+		margin: 0px 0px 30px 0px;
+	}
+	@media (max-width: $md4 + px) {
+		margin: 0px 0px 20px 0px;
+	}
 	&__title {
 		margin: 0px 0px 11px 0px;
 		font-size: 16px;
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 	&__header {
 		display: flex;
@@ -359,6 +525,9 @@ body.popup-active {
 		color: #999797;
 		padding: 0px 10px 7px 0px;
 		transition: color 0.3s ease 0s;
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 	&__icon {
 		display: flex;
@@ -386,10 +555,14 @@ body.popup-active {
 		z-index: 10;
 		&::-webkit-scrollbar {
 			width: 8px;
-			background: #999797;
+			background: #e5e5e5;
 		}
 		&::-webkit-scrollbar-thumb {
 			background: #313131;
+		}
+		@media (max-width: $md3 + px) {
+			top: 50%;
+			max-height: 165px;
 		}
 	}
 	&__item {
@@ -404,9 +577,12 @@ body.popup-active {
 		&:hover {
 			background-color: #f6f6f6;
 		}
+		@media (max-width: $md4 + px) {
+			font-size: 14px;
+		}
 	}
 }
 .select-color {
-	color: #000;
+	color: inherit;
 }
 //====================================================================================================

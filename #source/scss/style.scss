@@ -34,6 +34,13 @@ body {
 	&.lock {
 		overflow: hidden;
 	}
+	&::-webkit-scrollbar {
+		width: 8px;
+		background: #e5e5e5;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #000;
+	}
 }
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>==========================================================================
 
@@ -42,8 +49,6 @@ body {
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
-	&.loaded {
-	}
 }
 //</ОБОЛОЧКА>============================================================================================
 
@@ -82,8 +87,9 @@ body {
 		display: flex;
 		align-items: center;
 		padding: 65px 0px 0px 0px;
-		margin: 0px 0px 25px 0px;
+		margin: 30px 0px 25px 0px;
 		@media (max-width: $md2 + px) {
+			margin-top: 60px;
 			padding: 50px 0px 0px 0px;
 		}
 		@media (max-width: $md3 + px) {
@@ -571,6 +577,7 @@ body {
 	background-color: #f6f6f6;
 	position: relative;
 	overflow: hidden;
+	z-index: 2;
 	&:before {
 		content: "";
 		position: absolute;
@@ -597,6 +604,7 @@ body {
 	}
 	@media (max-width: $md3 + px) {
 		padding: 150px 0px 80px 0px;
+		z-index: 0;
 	}
 	&__content {
 		margin: 0 auto;
